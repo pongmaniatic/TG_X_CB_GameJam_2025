@@ -21,13 +21,10 @@ public class PlayerController : MonoBehaviour
         if (moveInput.magnitude != 0)
         {
             transform.position += new Vector3(moveInput.x, moveInput.y, 0) * Time.deltaTime * moveSpeed;
-            var main = ps.main;
-            main.startLifetimeMultiplier = lifetimeMultiplier;
         }
         else
         {
-            var main = ps.main;
-            main.startLifetimeMultiplier = 2;
+
         }
     }
 }
