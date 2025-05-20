@@ -2,11 +2,26 @@ using UnityEngine;
 
 public class WaterShootingBehaviour : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    public GameObject centerObject;
+    public GameObject WaterBullet;
+    private bool currentlyShooting;
+    private bool hasWater;
+
+
     void Start()
     {
         
     }
+
+
+    public void ShootWater()
+    {
+        Debug.Log("hey, I am clicking");
+        Destroy(centerObject);
+    }
+
+
 
     // Update is called once per frame
     void Update()
