@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -10,20 +11,19 @@ public class GeneratePlant : MonoBehaviour
     public int numberOfPlantsMin        = 2;
     public int numberOfPlantsMax        = 4;
     public List<Transform> seedSlots    = new List<Transform>();
-    private string prefabFolderPath     = "Assets/Prefabs/StemPrefabs";
-    private GameObject[] loadedPrefabs;
+    private GameObject[] loadedStemPrefabs;
+    private GameObject[] loadedFlowerPrefabs;
+    private List<GameObject> flowerStems = new List<GameObject>();
 
     void Start()
     {
-        loadedPrefabs = Resources.LoadAll<GameObject>("StemPrefabs");
+        loadedStemPrefabs   = Resources.LoadAll<GameObject>("StemPrefabs");
+        loadedFlowerPrefabs = Resources.LoadAll<GameObject>("FlowerPrefab");
         GeneratePlants();
     }
 
     void GeneratePlants()
     {
-
-
-
         switch (plantType)
         {
             case typeOfPlant.Floor:
@@ -43,8 +43,8 @@ public class GeneratePlant : MonoBehaviour
     void SpawnFlowerStem(int plantsGenerated) // Spawns random Stem prefab at random seed slot with a random rotation and flip
     {
         Transform randomSeedSlot                                    = seedSlots[Random.Range(0, seedSlots.Count)];
-        int randomIndex                                             = Random.Range(0, loadedPrefabs.Length);
-        GameObject prefabToSpawn                                    = loadedPrefabs[randomIndex];
+        int randomIndex                                             = Random.Range(0, loadedStemPrefabs.Length);
+        GameObject prefabToSpawn                                    = loadedStemPrefabs[randomIndex];
         GameObject stemPrefab                                       = Instantiate(prefabToSpawn, randomSeedSlot.position, Quaternion.identity);
         stemPrefab.transform.parent                                 = gameObject.transform;
         stemPrefab.name                                             = "stem_" + plantsGenerated;
@@ -53,8 +53,23 @@ public class GeneratePlant : MonoBehaviour
         SpriteRenderer stemSpriteRenderer                           = stemSprite.GetComponent<SpriteRenderer>();
         stemSpriteRenderer.flipX                                    = Random.Range(0, 2) == 0;
         stemPrefab.transform.Rotate(randomRotation, 0.0f, 0.0f, Space.World);
-
+        flowerStems.Add(stemPrefab);
         seedSlots.Remove(randomSeedSlot);
+    }
+
+    void SpawnFlowerInStem()
+    {
+        foreach (GameObject stem in flowerStems)
+        {
+            var flowerSlot                  =  stem.transform.Find("Flower_Slot");
+            int randomIndex                 = Random.Range(0, loadedFlowerPrefabs.Length);
+            GameObject prefabToSpawn        = loadedFlowerPrefabs[randomIndex];
+            GameObject flowerPrefab         = Instantiate(prefabToSpawn, flowerSlot.position, Quaternion.identity);
+            flowerPrefab.transform.parent   = stem.transform;
+            flowerPrefab.name               = "Flower";
+            int randomRotation              = Random.Range(-15, 15);
+            flowerPrefab.transform.Rotate(0.0f, 0.0f, randomRotation, Space.World);
+        }
     }
 
     private void FixPlantNumberIfOutOfRange()
@@ -82,21 +97,22 @@ public class GeneratePlant : MonoBehaviour
 
     void GenerateFloorPlants()
     {
-        bool moreThan1PrefabExist   = loadedPrefabs.Length > 0;
-        int plantsGenerated         = 0;
-        var numberOfPlants          = Random.Range(numberOfPlantsMin,numberOfPlantsMax);
+        bool moreThan1StemPrefabExist       = loadedStemPrefabs.Length > 0;
+        bool moreThan1FlowerPrefabExist     = loadedFlowerPrefabs.Length > 0;
+        int plantsGenerated                 = 0;
+        var numberOfPlants                  = Random.Range(numberOfPlantsMin,numberOfPlantsMax);
 
         FixPlantNumberIfOutOfRange();
 
-        if (!moreThan1PrefabExist)
+        if (!moreThan1StemPrefabExist || !moreThan1FlowerPrefabExist)
         {
-            Debug.LogWarning("No prefabs found in " + prefabFolderPath);
             return;
         }
         
         while (plantsGenerated < numberOfPlants)
         {
             SpawnFlowerStem(plantsGenerated);
+            SpawnFlowerInStem();
             plantsGenerated             += 1;
         }
     }
