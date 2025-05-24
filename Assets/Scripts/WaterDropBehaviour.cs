@@ -8,8 +8,13 @@ public class WaterDropBehaviour : MonoBehaviour
     public Vector3 targetScale      = new Vector3(0.05f, 0.05f, 0.05f); // Final scale
     public float scaleDuration      = 0.1f; // Time in seconds before destruction
     private bool splashing          = false;
+    private Rigidbody2D dropletRigidBody;
 
-
+    private void Start()
+    {
+        dropletRigidBody = gameObject.GetComponent<Rigidbody2D>();
+        StartCoroutine(GravityPause());
+    }
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Wall"))
@@ -21,6 +26,19 @@ public class WaterDropBehaviour : MonoBehaviour
         }
     }
 
+    IEnumerator GravityPause()
+    {
+        dropletRigidBody.gravityScale = 0;
+        while (dropletRigidBody.gravityScale < 1f)
+        {
+            dropletRigidBody.gravityScale += Time.deltaTime;
+            yield return null;
+        }
+
+
+        dropletRigidBody.gravityScale = 1;
+
+    }
 
     IEnumerator WaterSplash()
     {
@@ -46,6 +64,7 @@ public class WaterDropBehaviour : MonoBehaviour
             yield return null;
         }
         Destroy(gameObject);
+
     }
 
 }
