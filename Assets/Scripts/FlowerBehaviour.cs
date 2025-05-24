@@ -21,6 +21,7 @@ public class FlowerBehaviour : MonoBehaviour
             Destroy(collision.gameObject);
             dryflower.SetActive(false);
             healthyflower.SetActive(true);
+            flowerIsDry = false;
         }
     }
 
