@@ -14,8 +14,6 @@ public class WaterDropBehaviour : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Wall"))
         {
-            Debug.Log("------------");
-            Debug.Log(collision);
             if (!splashing)
             {
                 StartCoroutine(WaterSplash());

@@ -312,13 +312,13 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
-                    "m_Id": "61440bda686f4c1aad7f8767f6ad5a30"
+                    "m_Id": "79d7809dc4ab4f40b832bd26f9d0ef44"
                 },
-                "m_SlotId": 1
+                "m_SlotId": 2
             },
             "m_InputSlot": {
                 "m_Node": {
-                    "m_Id": "b67e749082944921ad3215d87109ee51"
+                    "m_Id": "6d3ed8ddc0ba4bb5823e0d68abd2631a"
                 },
                 "m_SlotId": 0
             }
@@ -403,6 +403,20 @@
             "m_InputSlot": {
                 "m_Node": {
                     "m_Id": "61440bda686f4c1aad7f8767f6ad5a30"
+                },
+                "m_SlotId": 0
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "b1523ed928974047a42ff56f99672e99"
+                },
+                "m_SlotId": 2
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "b67e749082944921ad3215d87109ee51"
                 },
                 "m_SlotId": 0
             }
@@ -893,7 +907,7 @@
     "m_CustomColors": {
         "m_SerializableColors": []
     },
-    "m_Space": 2,
+    "m_Space": 0,
     "m_PositionSource": 0
 }
 
@@ -1350,7 +1364,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 0.0,
+    "m_Value": 0.05999999865889549,
     "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.0,
@@ -1926,10 +1940,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -601.0863647460938,
-            "y": 229.5803985595703,
+            "x": -568.0,
+            "y": 307.3333435058594,
             "width": 142.00003051757813,
-            "height": 78.66665649414063
+            "height": 78.66668701171875
         }
     },
     "m_Slots": [
@@ -2121,9 +2135,9 @@
     "m_ShaderOutputName": "BaseColor",
     "m_StageCapability": 2,
     "m_Value": {
-        "x": 0.5,
-        "y": 0.5,
-        "z": 0.5
+        "x": 0.3814128041267395,
+        "y": 0.8601267337799072,
+        "z": 0.9137254953384399
     },
     "m_DefaultValue": {
         "x": 0.5,
@@ -3251,7 +3265,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 0.0,
+    "m_Value": 0.10000000149011612,
     "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.0,
