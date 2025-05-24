@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class GeneratePlant : MonoBehaviour
@@ -8,12 +6,24 @@ public class GeneratePlant : MonoBehaviour
     public enum typeOfPlant { Floor, Wall, Roof, Background};
 
     public typeOfPlant plantType;
-    public int numberOfPlantsMin        = 2;
-    public int numberOfPlantsMax        = 4;
-    public List<Transform> seedSlots    = new List<Transform>();
+    public int numberOfPlantsMin                = 2;
+    public int numberOfPlantsMax                = 4;
+
+    public Color DryPlantColor;
+    public Color HealthyPlantColor;
+
+    public Color dryFlowerColor;
+    public Color HealthyFlowerColor1;
+    public Color HealthyFlowerColor2;
+    public Color HealthyFlowerColor3;
+    public Color HealthyFlowerColor4;
+    public Color HealthyFlowerColor5;
+
+
+    public List<Transform> seedSlots            = new List<Transform>();
+    private List<GameObject> flowerStems        = new List<GameObject>();
     private GameObject[] loadedStemPrefabs;
     private GameObject[] loadedFlowerPrefabs;
-    private List<GameObject> flowerStems = new List<GameObject>();
 
     void Start()
     {
@@ -65,7 +75,7 @@ public class GeneratePlant : MonoBehaviour
             int randomIndex                 = Random.Range(0, loadedFlowerPrefabs.Length);
             GameObject prefabToSpawn        = loadedFlowerPrefabs[randomIndex];
             GameObject flowerPrefab         = Instantiate(prefabToSpawn, flowerSlot.position, Quaternion.identity);
-            flowerPrefab.transform.parent   = stem.transform;
+            flowerPrefab.transform.parent   = stem.transform.Find("Stem").transform;
             flowerPrefab.name               = "Flower";
             int randomRotation              = Random.Range(-15, 15);
             flowerPrefab.transform.Rotate(0.0f, 0.0f, randomRotation, Space.World);
@@ -115,6 +125,63 @@ public class GeneratePlant : MonoBehaviour
             SpawnFlowerInStem();
             plantsGenerated             += 1;
         }
+
+        PaintStems(DryPlantColor);
+        PaintDryFlower();
     }
-    
+
+    void PaintStems(Color color)
+    {
+        foreach (GameObject stem in flowerStems)
+        {
+            stem.transform.Find("Stem").GetComponent<SpriteRenderer>().color = color;
+        }
+    }
+    void PaintDryFlower()
+    {
+        foreach (GameObject stem in flowerStems)
+        {
+            var flowerStem                              = stem.transform.Find("Stem");
+            var flower                                  = flowerStem.transform.Find("Flower");
+
+            Debug.Log("------------"); 
+            Debug.Log(flowerStem.GetChild(0));
+            Debug.Log(flower);
+
+            SpriteRenderer  renderer                    = flower.GetComponent<SpriteRenderer>();
+            renderer.color                              = dryFlowerColor;
+        }
+    }
+    void PaintHealthyFlower()
+    {
+        foreach (GameObject stem in flowerStems)
+        {
+
+            int randomIndex = Random.Range(0, 5);
+            switch (randomIndex)
+            {
+                case 0:
+                    stem.transform.Find("Stem").Find("Flower").GetComponent<SpriteRenderer>().color = HealthyFlowerColor1;
+                    break;
+                case 1:
+                    stem.transform.Find("Stem").Find("Flower").GetComponent<SpriteRenderer>().color = HealthyFlowerColor2;
+                    break;
+                case 2:
+                    stem.transform.Find("Stem").Find("Flower").GetComponent<SpriteRenderer>().color = HealthyFlowerColor3;
+                    break;
+                case 3:
+                    stem.transform.Find("Stem").Find("Flower").GetComponent<SpriteRenderer>().color = HealthyFlowerColor4;
+                    break;
+                case 4:
+                    stem.transform.Find("Stem").Find("Flower").GetComponent<SpriteRenderer>().color = HealthyFlowerColor5;
+                    break;
+                default:
+                    stem.transform.Find("Stem").Find("Flower").GetComponent<SpriteRenderer>().color = HealthyFlowerColor2;
+                    break;
+            }
+
+            
+        }
+    }
+
 }
