@@ -1,85 +1,29 @@
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GeneratePlant : MonoBehaviour
 {
     public enum typeOfPlant { Floor, Wall, Roof, Background};
-
+ 
     public typeOfPlant plantType;
     public int numberOfPlantsMin                = 2;
     public int numberOfPlantsMax                = 4;
-
-    public Color DryPlantColor;
-    public Color HealthyPlantColor;
-
-    public Color dryFlowerColor;
-    public Color HealthyFlowerColor1;
-    public Color HealthyFlowerColor2;
-    public Color HealthyFlowerColor3;
-    public Color HealthyFlowerColor4;
-    public Color HealthyFlowerColor5;
-
 
     public List<Transform> seedSlots            = new List<Transform>();
     private List<GameObject> flowerStems        = new List<GameObject>();
     private GameObject[] loadedStemPrefabs;
     private GameObject[] loadedFlowerPrefabs;
 
+    public UnityEvent<Transform> giveStemDryColor_Event;
+    public UnityEvent<Transform> giveFlowerDryColor_Event;
+
     void Start()
     {
         loadedStemPrefabs   = Resources.LoadAll<GameObject>("StemPrefabs");
         loadedFlowerPrefabs = Resources.LoadAll<GameObject>("FlowerPrefab");
         GeneratePlants();
-    }
-
-    void GeneratePlants()
-    {
-        switch (plantType)
-        {
-            case typeOfPlant.Floor:
-                GenerateFloorPlants();
-                break;
-            case typeOfPlant.Wall:
-                break;
-            case typeOfPlant.Roof:
-                break;
-            case typeOfPlant.Background:
-                break;
-            default:
-                break;
-        }
-    }
-
-    void SpawnFlowerStem(int plantsGenerated) // Spawns random Stem prefab at random seed slot with a random rotation and flip
-    {
-        Transform randomSeedSlot                                    = seedSlots[Random.Range(0, seedSlots.Count)];
-        int randomIndex                                             = Random.Range(0, loadedStemPrefabs.Length);
-        GameObject prefabToSpawn                                    = loadedStemPrefabs[randomIndex];
-        GameObject stemPrefab                                       = Instantiate(prefabToSpawn, randomSeedSlot.position, Quaternion.identity);
-        stemPrefab.transform.parent                                 = gameObject.transform;
-        stemPrefab.name                                             = "stem_" + plantsGenerated;
-        int randomRotation                                          = Random.Range(-30, 30);
-        Transform stemSprite                                        = stemPrefab.transform.Find("Stem");
-        SpriteRenderer stemSpriteRenderer                           = stemSprite.GetComponent<SpriteRenderer>();
-        stemSpriteRenderer.flipX                                    = Random.Range(0, 2) == 0;
-        stemPrefab.transform.Rotate(randomRotation, 0.0f, 0.0f, Space.World);
-        flowerStems.Add(stemPrefab);
-        seedSlots.Remove(randomSeedSlot);
-    }
-
-    void SpawnFlowerInStem()
-    {
-        foreach (GameObject stem in flowerStems)
-        {
-            var flowerSlot                  =  stem.transform.Find("Flower_Slot");
-            int randomIndex                 = Random.Range(0, loadedFlowerPrefabs.Length);
-            GameObject prefabToSpawn        = loadedFlowerPrefabs[randomIndex];
-            GameObject flowerPrefab         = Instantiate(prefabToSpawn, flowerSlot.position, Quaternion.identity);
-            flowerPrefab.transform.parent   = stem.transform.Find("Stem").transform;
-            flowerPrefab.name               = "Flower";
-            int randomRotation              = Random.Range(-15, 15);
-            flowerPrefab.transform.Rotate(0.0f, 0.0f, randomRotation, Space.World);
-        }
     }
 
     private void FixPlantNumberIfOutOfRange()
@@ -105,6 +49,25 @@ public class GeneratePlant : MonoBehaviour
         }
     }
 
+    //----------[ Spawning Related Functions ]----------//
+    void GeneratePlants()
+    {
+        switch (plantType)
+        {
+            case typeOfPlant.Floor:
+                GenerateFloorPlants();
+                break;
+            case typeOfPlant.Wall:
+                break;
+            case typeOfPlant.Roof:
+                break;
+            case typeOfPlant.Background:
+                break;
+            default:
+                break;
+        }
+    }
+
     void GenerateFloorPlants()
     {
         bool moreThan1StemPrefabExist       = loadedStemPrefabs.Length > 0;
@@ -114,10 +77,8 @@ public class GeneratePlant : MonoBehaviour
 
         FixPlantNumberIfOutOfRange();
 
-        if (!moreThan1StemPrefabExist || !moreThan1FlowerPrefabExist)
-        {
-            return;
-        }
+        if (!moreThan1StemPrefabExist || !moreThan1FlowerPrefabExist) return;
+        
         
         while (plantsGenerated < numberOfPlants)
         {
@@ -126,62 +87,58 @@ public class GeneratePlant : MonoBehaviour
             plantsGenerated             += 1;
         }
 
-        PaintStems(DryPlantColor);
-        PaintDryFlower();
-    }
-
-    void PaintStems(Color color)
-    {
-        foreach (GameObject stem in flowerStems)
+        foreach (GameObject stemPrefab in flowerStems)
         {
-            stem.transform.Find("Stem").GetComponent<SpriteRenderer>().color = color;
+            Transform stem                  = stemPrefab.transform.Find("Stem");
+            Transform flower                = stem.transform.Find("Flower");
+
+            giveStemDryColor_Event.Invoke(stem);
+            giveFlowerDryColor_Event.Invoke(flower);
         }
     }
-    void PaintDryFlower()
+   
+    void SpawnFlowerStem(int plantsGenerated) // Spawns random Stem prefab at random seed slot with a random rotation and flip
     {
-        foreach (GameObject stem in flowerStems)
-        {
-            var flowerStem                              = stem.transform.Find("Stem");
-            var flower                                  = flowerStem.transform.Find("Flower");
+        // Get Random Seed Slot and instantiate a random stem in it
+        Transform randomSeedSlot            = seedSlots[Random.Range(0, seedSlots.Count)];
+        int randomIndex                     = Random.Range(0, loadedStemPrefabs.Length);
+        GameObject prefabToSpawn            = loadedStemPrefabs[randomIndex];
+        GameObject stemPrefab               = Instantiate(prefabToSpawn, randomSeedSlot.position, Quaternion.identity);
 
-            Debug.Log("------------"); 
-            Debug.Log(flowerStem.GetChild(0));
-            Debug.Log(flower);
+        // Set Stem Parent, name, rotation and flip
+        stemPrefab.transform.parent         = gameObject.transform;
+        stemPrefab.name                     = "stem_" + plantsGenerated;
+        int randomRotation                  = Random.Range(-30, 30);
+        Transform stemSprite                = stemPrefab.transform.Find("Stem");
+        SpriteRenderer stemSpriteRenderer   = stemSprite.GetComponent<SpriteRenderer>();
+        stemSpriteRenderer.flipX            = Random.Range(0, 2) == 0;
+        stemPrefab.transform.Rotate(randomRotation, 0.0f, 0.0f, Space.World);
 
-            SpriteRenderer  renderer                    = flower.GetComponent<SpriteRenderer>();
-            renderer.color                              = dryFlowerColor;
-        }
-    }
-    void PaintHealthyFlower()
-    {
-        foreach (GameObject stem in flowerStems)
-        {
-
-            int randomIndex = Random.Range(0, 5);
-            switch (randomIndex)
-            {
-                case 0:
-                    stem.transform.Find("Stem").Find("Flower").GetComponent<SpriteRenderer>().color = HealthyFlowerColor1;
-                    break;
-                case 1:
-                    stem.transform.Find("Stem").Find("Flower").GetComponent<SpriteRenderer>().color = HealthyFlowerColor2;
-                    break;
-                case 2:
-                    stem.transform.Find("Stem").Find("Flower").GetComponent<SpriteRenderer>().color = HealthyFlowerColor3;
-                    break;
-                case 3:
-                    stem.transform.Find("Stem").Find("Flower").GetComponent<SpriteRenderer>().color = HealthyFlowerColor4;
-                    break;
-                case 4:
-                    stem.transform.Find("Stem").Find("Flower").GetComponent<SpriteRenderer>().color = HealthyFlowerColor5;
-                    break;
-                default:
-                    stem.transform.Find("Stem").Find("Flower").GetComponent<SpriteRenderer>().color = HealthyFlowerColor2;
-                    break;
-            }
-
-            
-        }
+        // Add stem to list for future reference and remove seed slot from list to avoid using the same seed slot
+        flowerStems.Add(stemPrefab);
+        seedSlots.Remove(randomSeedSlot);
     }
 
+    void SpawnFlowerInStem() // Spawns random Flower prefab flower slot with a random rotation
+    {
+        foreach (GameObject stemPrefab in flowerStems)
+        {
+            // Check if flower already exists
+            Transform stem                  = stemPrefab.transform.Find("Stem");
+            bool flowerExists               = stem.transform.Find("Flower");
+            if (flowerExists) continue;
+
+            // Get Flower slot position, and instantiate a flower prefab in that position
+            var flowerSlot                  = stemPrefab.transform.Find("Flower_Slot");
+            int randomIndex                 = Random.Range(0, loadedFlowerPrefabs.Length);
+            GameObject prefabToSpawn        = loadedFlowerPrefabs[randomIndex];
+            GameObject flowerPrefab         = Instantiate(prefabToSpawn, flowerSlot.position, Quaternion.identity);
+
+            // Set Flower to be child of stem, change its name and rotation
+            flowerPrefab.transform.parent   = stem.transform;
+            flowerPrefab.name               = "Flower";
+            int randomRotation              = Random.Range(-15, 15);
+            flowerPrefab.transform.Rotate(0.0f, 0.0f, randomRotation, Space.World);
+        }
+    }
 }
