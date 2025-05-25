@@ -1,28 +1,31 @@
 using System.Collections.Generic;
 using System.Drawing;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class GeneratePlant : MonoBehaviour
 {
     public enum typeOfPlant { Floor, Wall, Roof, Background};
- 
+
     public typeOfPlant plantType;
     public int numberOfPlantsMin                = 2;
     public int numberOfPlantsMax                = 4;
-
     public List<Transform> seedSlots            = new List<Transform>();
+
     private List<GameObject> flowerStems        = new List<GameObject>();
     private GameObject[] loadedStemPrefabs;
     private GameObject[] loadedFlowerPrefabs;
+    private GameObject uilityScripts;
+    private FlowerColorUntility flowerColorUntility;
 
-    public UnityEvent<Transform> giveStemDryColor_Event;
-    public UnityEvent<Transform> giveFlowerDryColor_Event;
 
     void Start()
     {
         loadedStemPrefabs   = Resources.LoadAll<GameObject>("StemPrefabs");
         loadedFlowerPrefabs = Resources.LoadAll<GameObject>("FlowerPrefab");
+        uilityScripts       = GameObject.Find("UtilityScripts");
+        flowerColorUntility = uilityScripts.GetComponent<FlowerColorUntility>();
         GeneratePlants();
     }
 
@@ -92,8 +95,12 @@ public class GeneratePlant : MonoBehaviour
             Transform stem                  = stemPrefab.transform.Find("Stem");
             Transform flower                = stem.transform.Find("Flower");
 
-            giveStemDryColor_Event.Invoke(stem);
-            giveFlowerDryColor_Event.Invoke(flower);
+            if (flowerColorUntility != null)
+            {
+                flowerColorUntility.PaintDryStem(stem);
+                flowerColorUntility.PaintDryFlower(flower);
+            }
+
         }
     }
    
@@ -107,7 +114,7 @@ public class GeneratePlant : MonoBehaviour
 
         // Set Stem Parent, name, rotation and flip
         stemPrefab.transform.parent         = gameObject.transform;
-        stemPrefab.name                     = "stem_" + plantsGenerated;
+        stemPrefab.name                     = "StemPrefab";
         int randomRotation                  = Random.Range(-30, 30);
         Transform stemSprite                = stemPrefab.transform.Find("Stem");
         SpriteRenderer stemSpriteRenderer   = stemSprite.GetComponent<SpriteRenderer>();

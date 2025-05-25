@@ -1,25 +1,18 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class FlowerColorUntility : MonoBehaviour
 {
 
     public Color dryStemColor;
-    public Color healthyPlantColor;
     public Color dryFlowerColor;
+    public Color healthyStemColor;
     public Color healthyFlowerColor1;
     public Color healthyFlowerColor2;
     public Color healthyFlowerColor3;
     public Color healthyFlowerColor4;
     public Color healthyFlowerColor5;
 
-
-    //void PaintStems(Color color)
-    //{
-    //    foreach (GameObject stem in flowerStems)
-    //    {
-    //        stem.transform.Find("Stem").GetComponent<SpriteRenderer>().color = color;
-    //    }
-    //}
 
     public void PaintDryFlower(Transform flower)
     {
@@ -32,36 +25,61 @@ public class FlowerColorUntility : MonoBehaviour
         renderer.color = dryStemColor;
     }
 
-    //void PaintHealthyFlower()
-    //{
-    //    foreach (GameObject stem in flowerStems)
-    //    {
+    List<GameObject> GetListOfChildrenOfName(GameObject parent, string childName)
+    {
+        List<GameObject> matchingChildren   = new List<GameObject>();
+        Transform[] allChildren             = parent.GetComponentsInChildren<Transform>();
 
-    //        int randomIndex = Random.Range(0, 5);
-    //        switch (randomIndex)
-    //        {
-    //            case 0:
-    //                stem.transform.Find("Stem").Find("Flower").GetComponent<SpriteRenderer>().color = HealthyFlowerColor1;
-    //                break;
-    //            case 1:
-    //                stem.transform.Find("Stem").Find("Flower").GetComponent<SpriteRenderer>().color = HealthyFlowerColor2;
-    //                break;
-    //            case 2:
-    //                stem.transform.Find("Stem").Find("Flower").GetComponent<SpriteRenderer>().color = HealthyFlowerColor3;
-    //                break;
-    //            case 3:
-    //                stem.transform.Find("Stem").Find("Flower").GetComponent<SpriteRenderer>().color = HealthyFlowerColor4;
-    //                break;
-    //            case 4:
-    //                stem.transform.Find("Stem").Find("Flower").GetComponent<SpriteRenderer>().color = HealthyFlowerColor5;
-    //                break;
-    //            default:
-    //                stem.transform.Find("Stem").Find("Flower").GetComponent<SpriteRenderer>().color = HealthyFlowerColor2;
-    //                break;
-    //        }
+        foreach (Transform child in allChildren)
+        {
+            if (child.gameObject.name == childName)
+            {
+                matchingChildren.Add(child.gameObject);
+            }
+        }
+        return matchingChildren;
+    }
 
+    public void PaintHealthyFlower(GameObject plantPrefab)
+    {
+        // Gerome and Patty
+        List<GameObject> stemPrefabs    = GetListOfChildrenOfName(plantPrefab, "StemPrefab");
+        List<GameObject> flowers        = GetListOfChildrenOfName(plantPrefab, "Flower");
+        List<GameObject> stems          = GetListOfChildrenOfName(plantPrefab, "Stem");
 
-    //    }
-    //}
+        foreach (GameObject flowerObject in flowers)
+        {
+            SpriteRenderer flowerSpriteRenderer = flowerObject.GetComponent<SpriteRenderer>();
+            int randomIndex = Random.Range(0, 5);
+            switch (randomIndex)
+            {
+                case 0:
+                    flowerSpriteRenderer.color = healthyFlowerColor1;
+                    break;
+                case 1:
+                    flowerSpriteRenderer.color = healthyFlowerColor2;
+                    break;
+                case 2:
+                    flowerSpriteRenderer.color = healthyFlowerColor3;
+                    break;
+                case 3:
+                    flowerSpriteRenderer.color = healthyFlowerColor4;
+                    break;
+                case 4:
+                    flowerSpriteRenderer.color = healthyFlowerColor5;
+                    break;
+                default:
+                    flowerSpriteRenderer.color = healthyFlowerColor2;
+                    break;
+            }
+        }
+
+        foreach (GameObject stemObject in stems)
+        {
+
+            SpriteRenderer stemSpriteRenderer   = stemObject.GetComponent<SpriteRenderer>();
+            stemSpriteRenderer.color            = healthyStemColor;
+        }    
+    }
 
 }

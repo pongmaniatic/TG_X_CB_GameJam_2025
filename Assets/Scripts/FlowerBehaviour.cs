@@ -4,15 +4,28 @@ using UnityEngine.Events;
 public class FlowerBehaviour : MonoBehaviour
 {
 
-    private bool flowerIsDry    = true;
     public UnityEvent makePlantHealthy;
 
+    private bool flowerIsDry    = true;
+    private GameObject uilityScripts;
+    private FlowerColorUntility flowerColorUntility;
+
+
+    void Start()
+    {
+        uilityScripts       = GameObject.Find("UtilityScripts");
+        flowerColorUntility = uilityScripts.GetComponent<FlowerColorUntility>();
+    }
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Water"))
+        if (flowerIsDry)
         {
-            Destroy(collision.gameObject);
-            makePlantHealthy.Invoke();
+            if (collision.gameObject.CompareTag("Water"))
+            {
+                Destroy(collision.gameObject);
+                flowerColorUntility.PaintHealthyFlower(gameObject);
+                flowerIsDry = false;
+            }
         }
     }
 
