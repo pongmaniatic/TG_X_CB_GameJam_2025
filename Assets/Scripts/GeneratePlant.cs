@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class GeneratePlant : MonoBehaviour
 {
-    public enum typeOfPlant { Floor, Wall, Roof, Background};
+    public enum typeOfPlant { Floor, LeftWall, RightWall, Roof, Background};
 
     public typeOfPlant plantType;
     public int numberOfPlantsMin                = 2;
@@ -52,6 +52,15 @@ public class GeneratePlant : MonoBehaviour
         }
     }
 
+    private void RotateAllFlowers(float rotation)
+    {
+        foreach (GameObject stemPrefab in flowerStems)
+        {
+            Transform stem = stemPrefab.transform.Find("Stem");
+            stem.Rotate(0.0f, 0.0f, rotation, Space.World);
+        }
+    }
+
     //----------[ Spawning Related Functions ]----------//
     void GeneratePlants()
     {
@@ -60,11 +69,18 @@ public class GeneratePlant : MonoBehaviour
             case typeOfPlant.Floor:
                 GenerateFloorPlants();
                 break;
-            case typeOfPlant.Wall:
+            case typeOfPlant.LeftWall:
+                GenerateFloorPlants();
+                RotateAllFlowers(-90);
+                break;
+            case typeOfPlant.RightWall:
+                GenerateFloorPlants();
+                RotateAllFlowers(90);
                 break;
             case typeOfPlant.Roof:
+                GenerateFloorPlants();
                 break;
-            case typeOfPlant.Background:
+            case typeOfPlant.Background: 
                 break;
             default:
                 break;

@@ -46,7 +46,7 @@ public class FlowerColorUntility : MonoBehaviour
         List<GameObject> stemPrefabs    = GetListOfChildrenOfName(plantPrefab, "StemPrefab");
         List<GameObject> flowers        = GetListOfChildrenOfName(plantPrefab, "Flower");
         List<GameObject> stems          = GetListOfChildrenOfName(plantPrefab, "Stem");
-
+         
         foreach (GameObject flowerObject in flowers)
         {
             SpriteRenderer flowerSpriteRenderer = flowerObject.GetComponent<SpriteRenderer>();
