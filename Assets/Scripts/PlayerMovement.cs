@@ -10,9 +10,6 @@ public class PlayerMovement : Player
     [SerializeField] private float accelerationSpeed;
     [SerializeField] private float decelerationSpeed;
 
-    
-
-
     //physics update
     void FixedUpdate()
     {
@@ -22,7 +19,6 @@ public class PlayerMovement : Player
     // Update is called once per frame
     void Update()
     {
-
     }
 
     private void Move(Vector2 direction, float acceleration, float deceleration, float maxSpeed)
