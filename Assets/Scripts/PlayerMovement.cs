@@ -4,25 +4,14 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : Player
 {
     [SerializeField] private float maxSpeed;
     [SerializeField] private float accelerationSpeed;
     [SerializeField] private float decelerationSpeed;
 
-    private bool grounded;
-    private Vector2 moveInput;
+    
 
-
-    private Rigidbody2D rb;
-    private BoxCollider2D col;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        if(!(rb = GetComponent<Rigidbody2D>())) { Debug.LogError("player must contain a 2d rigidbodly"); }
-        if (!(col = GetComponent<BoxCollider2D>())) { Debug.LogError("player must contain a box colider"); }
-    }
 
     //physics update
     void FixedUpdate()
@@ -33,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
     }
 
     private void Move(Vector2 direction, float acceleration, float deceleration, float maxSpeed)
@@ -57,11 +47,5 @@ public class PlayerMovement : MonoBehaviour
         }
 
         rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, targetVelocity, speed * 0.01f);
-    }
-
-    //this is called externally when receiving move input
-    public void OnMove(InputAction.CallbackContext ctx)
-    {
-        moveInput = ctx.ReadValue<Vector2>();
     }
 }
