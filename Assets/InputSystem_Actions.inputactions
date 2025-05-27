@@ -243,6 +243,28 @@
                 },
                 {
                     "name": "",
+                    "id": "7a56b8fb-2f4d-475c-a832-7ecdf90e76ba",
+                    "path": "<Keyboard>/#(W)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cf44de20-4e2e-493e-ab49-27db5156afc3",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "5d27be7a-951c-4f76-8079-34b28dc2f3d1",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
