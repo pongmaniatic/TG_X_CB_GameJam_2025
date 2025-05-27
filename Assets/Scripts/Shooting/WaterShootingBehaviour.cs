@@ -28,8 +28,6 @@ public class WaterShootingBehaviour : MonoBehaviour
     {
         UpdateCursor();
 
-
-
         if (shootTimer > 0)
         {
             shootTimer -= Time.deltaTime;
@@ -37,7 +35,6 @@ public class WaterShootingBehaviour : MonoBehaviour
 
         if (isShooting && waterBullet != null) SpawnWater();
            
-        
     }
 
     private void SpawnWater()

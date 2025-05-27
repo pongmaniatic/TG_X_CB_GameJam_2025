@@ -52,13 +52,11 @@ public class FlowerBehaviour : MonoBehaviour
 
         while (timeElapsed < scaleDuration)
         {
-            Debug.Log(timeElapsed);
             gameObject.transform.localScale = Vector3.Lerp(targetScale, initialScale, timeElapsed / scaleDuration );
             timeElapsed += Time.deltaTime;
             yield return null;
         }
 
-        //gameObject.transform.localScale = targetScale;
 
     }
 

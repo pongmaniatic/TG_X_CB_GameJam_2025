@@ -12,6 +12,7 @@ public class PlayerJump : Player
 
     public void onJump(InputAction.CallbackContext ctx)
     {
+        Debug.Log(IsGrounded());
         if(IsGrounded())
         {
             Jump(Vector2.up, jumpSpeed);
