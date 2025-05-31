@@ -3,6 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using static CollisionManager;
 
 public class PlayerMovement : Player
 {
@@ -44,4 +45,20 @@ public class PlayerMovement : Player
 
         rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, targetVelocity, speed * 0.01f);
     }
+
+    //private void OnEnable()
+    //{
+    //    CollisionManager.Instance.onc += OnCollision;
+    //}
+
+    //private void OnDisable()
+    //{
+    //    CollisionManager.Instance.onCollision -= OnCollision;
+    //}
+
+    //private void OnCollision(Collider2D collision, ColliderSide side)
+    //{
+    //    Debug.Log("Wohoo");
+    //}
+
 }
