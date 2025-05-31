@@ -9,16 +9,15 @@ public class PlayerColliderTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Wall"))
         {
-            CollisionManager.Instance.downColliderIsGrounded = true;
-            CollisionManager.Instance.CollisionHasOccured(other, colliderSide);
+            CollisionManager.Instance.PlayerTriggerHasEntered(other, colliderSide);
         }
     }
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Wall"))
         {
-
             CollisionManager.Instance.downColliderIsGrounded = false;
+            CollisionManager.Instance.PlayerTriggerHasExited(other, colliderSide);
         }
     }
 }

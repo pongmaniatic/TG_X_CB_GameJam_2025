@@ -46,19 +46,19 @@ public class PlayerMovement : Player
         rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, targetVelocity, speed * 0.01f);
     }
 
-    private void OnEnable()
-    {
-        CollisionManager.Instance.onCollision += OnCollision;
-    }
+    //private void OnEnable()
+    //{
+    //    CollisionManager.Instance.onc += OnCollision;
+    //}
 
-    private void OnDisable()
-    {
-        CollisionManager.Instance.onCollision -= OnCollision;
-    }
+    //private void OnDisable()
+    //{
+    //    CollisionManager.Instance.onCollision -= OnCollision;
+    //}
 
-    private void OnCollision(Collider2D collision, ColliderSide side)
-    {
-        Debug.Log("Wohoo");
-    }
+    //private void OnCollision(Collider2D collision, ColliderSide side)
+    //{
+    //    Debug.Log("Wohoo");
+    //}
 
 }

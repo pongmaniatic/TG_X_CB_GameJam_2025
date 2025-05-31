@@ -15,7 +15,10 @@ public class CollisionManager : MonoBehaviour // Singelton Pattern
 
     public event Action<Collider2D> onRightCollision;
 
-    public bool downColliderIsGrounded = false;
+    public bool downColliderIsGrounded  = false;
+    public bool upColliderIsGrounded    = false;
+    public bool leftColliderIsGrounded  = false;
+    public bool rightColliderIsGrounded = false;
 
     void Awake()
     {
@@ -29,7 +32,7 @@ public class CollisionManager : MonoBehaviour // Singelton Pattern
         DontDestroyOnLoad(gameObject);
     }
 
-    public void CollisionHasOccured(Collider2D collision, ColliderSide side)
+    public void PlayerTriggerHasEntered(Collider2D collision, ColliderSide side)
     {
         switch (side)
         {
@@ -37,17 +40,38 @@ public class CollisionManager : MonoBehaviour // Singelton Pattern
                 onLeftCollision?.Invoke(collision); // Call all subscribers of this delegate, in this case when a collider is hit
                 break;
             case ColliderSide.Right:
-                onRightCollision?.Invoke(collision); 
+                onRightCollision?.Invoke(collision);
                 break;
             case ColliderSide.Up:
-                onUpCollision?.Invoke(collision); 
+                onUpCollision?.Invoke(collision);
                 break;
             case ColliderSide.Down:
-                onDownCollision?.Invoke(collision); 
+                onDownCollision?.Invoke(collision);
                 break;
             default:
                 break;
-        }   
+        }
+    }
+
+    public void PlayerTriggerHasExited(Collider2D collision, ColliderSide side)
+    {
+        switch (side)
+        {
+            case ColliderSide.Left:
+                onLeftCollision?.Invoke(collision); // Call all subscribers of this delegate, in this case when a collider is hit
+                break;
+            case ColliderSide.Right:
+                onRightCollision?.Invoke(collision);
+                break;
+            case ColliderSide.Up:
+                onUpCollision?.Invoke(collision);
+                break;
+            case ColliderSide.Down:
+                onDownCollision?.Invoke(collision);
+                break;
+            default:
+                break;
+        }
     }
 
 }
