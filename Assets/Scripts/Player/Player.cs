@@ -1,8 +1,10 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    public static Player main;
     private float groundDist = 0.06f;
     private float collisionPadding = 0.06f;
 
@@ -11,6 +13,11 @@ public class Player : MonoBehaviour
     protected Vector2 moveInput;
 
     [SerializeField] protected bool debugMode;
+
+    private void OnValidate()
+    {
+        if(!main) main = this;
+    }
 
     protected void Start()
     {

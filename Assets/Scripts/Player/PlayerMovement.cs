@@ -22,6 +22,21 @@ public class PlayerMovement : Player
     {
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        switch(collision.tag)
+        {
+            case "Wall":
+                collision.GetComponent<Collider2D>().isTrigger = false;
+                break;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        
+    }
+
     private void Move(Vector2 direction, float acceleration, float deceleration, float maxSpeed)
     { 
         //set defaul target velocity to move in direciton
