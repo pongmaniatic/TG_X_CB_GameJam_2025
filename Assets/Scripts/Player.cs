@@ -4,10 +4,13 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     private float groundDist = 0.06f;
+    private float collisionPadding = 0.06f;
 
     protected Rigidbody2D rb;
     protected Collider2D col;
     protected Vector2 moveInput;
+
+    [SerializeField] protected bool debugMode;
 
     protected void Start()
     {
@@ -17,14 +20,17 @@ public class Player : MonoBehaviour
 
     private RaycastHit2D GetGround()
     {
-        var distance = groundDist;
-        var size = col.bounds.size;//new Vector2(col.bounds.size.x, 0.01f);
-        var center = col.bounds.center;//new Vector2(col.bounds.center.x, col.bounds.min.y - size.y);
-        var angle = 0f;
-        var direction = Vector2.down;
-        var layer = LayerMask.GetMask("Surface");
+        var pos1 = new Vector2(col.bounds.min.x + collisionPadding, col.bounds.min.y - groundDist);
+        var pos2 = new Vector2(col.bounds.max.x - collisionPadding, col.bounds.min.y - groundDist);
+        RaycastHit2D hit = Physics2D.Linecast(pos1, pos2);
 
-        return Physics2D.BoxCast(center, size, angle, direction, distance, layer);
+        if(debugMode)
+        {
+            var color = hit ? Color.green : Color.red;
+            Debug.DrawLine(pos1, pos2, color);
+        }
+
+        return hit;
     }
 
     protected bool IsGrounded()
