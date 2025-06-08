@@ -3,7 +3,6 @@ using UnityEngine;
 public class Platform : MonoBehaviour
 {
     private Collider2D col;
-    private Player player;
     private Collider2D playerCol;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void OnValidate()
@@ -14,7 +13,6 @@ public class Platform : MonoBehaviour
     void Start()
     {
         if (!(col = GetComponent<Collider2D>())) Debug.LogError("Platform \"" + gameObject.name + "\" must contain at least 1 2D collider");
-        //player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         playerCol = Player.main.GetComponent<Collider2D>();
     }
 
@@ -26,6 +24,7 @@ public class Platform : MonoBehaviour
 
     private void CheckUpdateCollisions()
     {
+        Debug.Log(Player.main.transform.position.y);
         col.isTrigger = playerCol.bounds.min.y < transform.position.y;//col.bounds.max.y;
     }
 }

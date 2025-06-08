@@ -33,7 +33,7 @@ public class CamControl : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = PlayerInRange(playerDistance) ? Color.green : Color.red;
+        Gizmos.color = Color.green; //PlayerInRange(playerDistance) ? Color.green : Color.red;
         Gizmos.DrawWireSphere(transform.position, playerDistance);
     }
 }

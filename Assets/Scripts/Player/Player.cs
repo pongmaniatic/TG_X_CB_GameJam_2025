@@ -5,24 +5,30 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     public static Player main;
+
     private float groundDist = 0.06f;
     private float collisionPadding = 0.06f;
 
     protected Rigidbody2D rb;
     protected Collider2D col;
     protected Vector2 moveInput;
+    protected GameObject rig;
+    protected Animator anim;
 
     [SerializeField] protected bool debugMode;
 
-    private void OnValidate()
+    private void Awake()
     {
         if(!main) main = this;
     }
 
     protected void Start()
     {
-        if (!(rb = GetComponent<Rigidbody2D>())) { Debug.LogError("player must contain a 2d rigidbodly"); }
-        if(!(col = GetComponent<Collider2D>())) { Debug.LogError("player must contain a collider"); }
+        if (!(rb = GetComponent<Rigidbody2D>())) Debug.LogError("player must contain a 2d rigidbodly");
+        if(!(col = GetComponent<Collider2D>())) Debug.LogError("player must contain a collider");
+        //if (!(anim = GetComponent<Animator>())) Debug.LogError("player must contain an animator");
+        rig = GameObject.FindGameObjectWithTag("PlayerRig");
+        anim = rig.GetComponent<Animator>();
     }
 
     private RaycastHit2D GetGround()
