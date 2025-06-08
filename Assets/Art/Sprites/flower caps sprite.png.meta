@@ -509,7 +509,23 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      flower caps sprite_0: -1081253720961987054
+      flower caps sprite_1: -6245879880925230845
+      flower caps sprite_10: -7076142334251415637
+      flower caps sprite_11: -4896856248349173755
+      flower caps sprite_12: 4130253742689518205
+      flower caps sprite_13: 1159852509198506470
+      flower caps sprite_14: 6881079683339192504
+      flower caps sprite_15: -7489393476996466438
+      flower caps sprite_2: -2247232109379068179
+      flower caps sprite_3: -6367174945048536969
+      flower caps sprite_4: -4230840822753109057
+      flower caps sprite_5: 1972460521198645392
+      flower caps sprite_6: 715827580940767859
+      flower caps sprite_7: -3589686255138701554
+      flower caps sprite_8: -6048552953687498444
+      flower caps sprite_9: 3436838912196868707
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

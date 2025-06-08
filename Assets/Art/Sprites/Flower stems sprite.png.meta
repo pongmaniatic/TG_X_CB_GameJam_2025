@@ -509,7 +509,23 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Flower stems sprite_0: 4970577638738430402
+      Flower stems sprite_1: -5351987133120862376
+      Flower stems sprite_10: -5837178101740637492
+      Flower stems sprite_11: -2797210718147272769
+      Flower stems sprite_12: 6013528510932471452
+      Flower stems sprite_13: -4933988942576034639
+      Flower stems sprite_14: -997591579577629514
+      Flower stems sprite_15: -524467187277417633
+      Flower stems sprite_2: -4444042637287422413
+      Flower stems sprite_3: -7221650609917769137
+      Flower stems sprite_4: -3691185691696838394
+      Flower stems sprite_5: -4422272112991629310
+      Flower stems sprite_6: -3797322193884303571
+      Flower stems sprite_7: -4097990415299809359
+      Flower stems sprite_8: 2880034854858748417
+      Flower stems sprite_9: 3588407892385483152
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
