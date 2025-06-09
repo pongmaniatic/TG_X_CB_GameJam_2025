@@ -20,7 +20,10 @@ public class Flower : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Color[] colors = { Color.red, Color.pink, Color.purple, Color.yellow, Color.salmon };
+        petalColor = colors[Random.Range(0, colors.Length)];
         petalRender.color = petalColor;
+
     }
 
     // Update is called once per frame
