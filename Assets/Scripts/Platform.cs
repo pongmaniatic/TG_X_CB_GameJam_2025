@@ -24,7 +24,6 @@ public class Platform : MonoBehaviour
 
     private void CheckUpdateCollisions()
     {
-        Debug.Log(Player.main.transform.position.y);
         col.isTrigger = playerCol.bounds.min.y < transform.position.y;//col.bounds.max.y;
     }
 }

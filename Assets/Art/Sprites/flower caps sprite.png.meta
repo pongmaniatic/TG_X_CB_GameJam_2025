@@ -98,7 +98,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -148,12 +148,12 @@ TextureImporter:
       name: flower caps sprite_0
       rect:
         serializedVersion: 2
-        x: 858
-        y: 705
-        width: 63
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 540
+        width: 240
+        height: 540
+      alignment: 9
+      pivot: {x: 0.8921569, y: 0.21435502}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -170,12 +170,12 @@ TextureImporter:
       name: flower caps sprite_1
       rect:
         serializedVersion: 2
-        x: 1072
-        y: 749
-        width: 66
-        height: 63
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 240
+        y: 540
+        width: 240
+        height: 540
+      alignment: 9
+      pivot: {x: 0.8522148, y: 0.19821687}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -192,12 +192,12 @@ TextureImporter:
       name: flower caps sprite_2
       rect:
         serializedVersion: 2
-        x: 1307
-        y: 745
-        width: 68
-        height: 72
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 480
+        y: 540
+        width: 240
+        height: 540
+      alignment: 9
+      pivot: {x: 0.7469137, y: 0.19983068}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -214,12 +214,12 @@ TextureImporter:
       name: flower caps sprite_3
       rect:
         serializedVersion: 2
-        x: 1509
-        y: 736
-        width: 90
-        height: 85
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 720
+        y: 540
+        width: 240
+        height: 540
+      alignment: 9
+      pivot: {x: 0.57625276, y: 0.34830153}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -236,12 +236,12 @@ TextureImporter:
       name: flower caps sprite_4
       rect:
         serializedVersion: 2
-        x: 1727
-        y: 729
-        width: 114
-        height: 109
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 960
+        y: 540
+        width: 240
+        height: 540
+      alignment: 9
+      pivot: {x: 0.50363106, y: 0.40639886}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -258,12 +258,12 @@ TextureImporter:
       name: flower caps sprite_5
       rect:
         serializedVersion: 2
-        x: 200
-        y: 598
-        width: 41
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1200
+        y: 540
+        width: 240
+        height: 540
+      alignment: 9
+      pivot: {x: 0.49273834, y: 0.3999436}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -280,12 +280,12 @@ TextureImporter:
       name: flower caps sprite_6
       rect:
         serializedVersion: 2
-        x: 427
-        y: 589
-        width: 42
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1440
+        y: 540
+        width: 240
+        height: 540
+      alignment: 9
+      pivot: {x: 0.36201885, y: 0.38219163}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -302,12 +302,12 @@ TextureImporter:
       name: flower caps sprite_7
       rect:
         serializedVersion: 2
-        x: 641
-        y: 590
-        width: 43
-        height: 68
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1680
+        y: 540
+        width: 240
+        height: 540
+      alignment: 9
+      pivot: {x: 0.2857666, y: 0.37412268}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -324,12 +324,12 @@ TextureImporter:
       name: flower caps sprite_8
       rect:
         serializedVersion: 2
-        x: 130
-        y: 253
-        width: 115
-        height: 116
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 240
+        height: 540
+      alignment: 9
+      pivot: {x: 0.6597675, y: 0.4951586}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -346,12 +346,12 @@ TextureImporter:
       name: flower caps sprite_9
       rect:
         serializedVersion: 2
-        x: 337
-        y: 255
-        width: 125
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 240
+        y: 0
+        width: 240
+        height: 540
+      alignment: 9
+      pivot: {x: 0.5399419, y: 0.5016139}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -368,12 +368,12 @@ TextureImporter:
       name: flower caps sprite_10
       rect:
         serializedVersion: 2
-        x: 556
-        y: 261
-        width: 143
-        height: 110
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 480
+        y: 0
+        width: 240
+        height: 540
+      alignment: 9
+      pivot: {x: 0.5617282, y: 0.5080691}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -390,12 +390,12 @@ TextureImporter:
       name: flower caps sprite_11
       rect:
         serializedVersion: 2
-        x: 778
-        y: 246
-        width: 143
-        height: 114
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 720
+        y: 0
+        width: 240
+        height: 540
+      alignment: 9
+      pivot: {x: 0.5653595, y: 0.49354473}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -412,12 +412,12 @@ TextureImporter:
       name: flower caps sprite_12
       rect:
         serializedVersion: 2
-        x: 988
-        y: 267
-        width: 151
-        height: 105
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 960
+        y: 0
+        width: 240
+        height: 540
+      alignment: 9
+      pivot: {x: 0.46732026, y: 0.50322765}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -434,12 +434,12 @@ TextureImporter:
       name: flower caps sprite_13
       rect:
         serializedVersion: 2
-        x: 1236
-        y: 260
-        width: 147
-        height: 110
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1200
+        y: 0
+        width: 240
+        height: 540
+      alignment: 9
+      pivot: {x: 0.43827158, y: 0.4951586}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -456,12 +456,12 @@ TextureImporter:
       name: flower caps sprite_14
       rect:
         serializedVersion: 2
-        x: 1455
-        y: 268
-        width: 146
-        height: 103
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1440
+        y: 0
+        width: 240
+        height: 540
+      alignment: 9
+      pivot: {x: 0.3656494, y: 0.49838617}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -478,12 +478,12 @@ TextureImporter:
       name: flower caps sprite_15
       rect:
         serializedVersion: 2
-        x: 1676
-        y: 262
-        width: 149
-        height: 99
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1680
+        y: 0
+        width: 240
+        height: 540
+      alignment: 9
+      pivot: {x: 0.2857661, y: 0.49838635}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -500,7 +500,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 8526c533914dcf545b4c4d30d2fd85b3
     internalID: 0
     vertices: []
     indices: 
@@ -508,7 +508,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":8.0,"y":2.0},"gridSpriteSize":{"x":240.0,"y":540.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       flower caps sprite_0: -1081253720961987054
       flower caps sprite_1: -6245879880925230845
