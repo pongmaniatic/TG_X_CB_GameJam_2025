@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 972d88be1aee13e48a3029c0aeac8c07
+guid: 5e9b6bcea3d10b745ba4cd2de7a704e3
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      water drop_0: 7032494019667602750
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

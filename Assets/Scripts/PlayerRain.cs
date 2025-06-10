@@ -16,7 +16,6 @@ public class PlayerRain : Player
 
     private void Glide(float amnt)
     {
-        Debug.Log(rb.linearVelocity.y);
             
         rb.gravityScale = rb.linearVelocity.y >= 0 ? 1 : 1 / Mathf.Max(amnt, 1f);
     }

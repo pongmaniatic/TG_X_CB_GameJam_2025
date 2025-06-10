@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f3b2f75fe3dc95149bad5a145383fe00
+guid: 807119e4a6325ef43a9520bd1f36423a
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -459,7 +459,21 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      water splash sprite anim_0: 1319660909382209636
+      water splash sprite anim_1: 4816170859380122733
+      water splash sprite anim_10: -5398883585361921039
+      water splash sprite anim_11: 14993288856472407
+      water splash sprite anim_12: -3930811705273751858
+      water splash sprite anim_13: 6795129986790765882
+      water splash sprite anim_2: -883599170504560043
+      water splash sprite anim_3: 1351491332710775390
+      water splash sprite anim_4: 4765872849031537301
+      water splash sprite anim_5: -6592510761719767219
+      water splash sprite anim_6: -6361938690474712297
+      water splash sprite anim_7: 7437447614146863431
+      water splash sprite anim_8: 6965923590617624698
+      water splash sprite anim_9: -5292839491539271194
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

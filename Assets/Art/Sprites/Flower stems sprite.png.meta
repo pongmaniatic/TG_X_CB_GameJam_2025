@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 55b6342b29438a64590bff614ecb22d0
+guid: 736bbd01591308343ba00577346be739
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -148,12 +148,12 @@ TextureImporter:
       name: Flower stems sprite_0
       rect:
         serializedVersion: 2
-        x: 120
-        y: 570
-        width: 103
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 540
+        width: 240
+        height: 540
+      alignment: 9
+      pivot: {x: 0.5726216, y: 0.07233932}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -170,12 +170,12 @@ TextureImporter:
       name: Flower stems sprite_1
       rect:
         serializedVersion: 2
-        x: 347
-        y: 569
-        width: 105
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 240
+        y: 540
+        width: 240
+        height: 540
+      alignment: 9
+      pivot: {x: 0.5072622, y: 0.06749787}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -192,12 +192,12 @@ TextureImporter:
       name: Flower stems sprite_2
       rect:
         serializedVersion: 2
-        x: 560
-        y: 570
-        width: 104
-        height: 117
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 480
+        y: 540
+        width: 240
+        height: 540
+      alignment: 9
+      pivot: {x: 0.4019605, y: 0.06749787}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -214,12 +214,12 @@ TextureImporter:
       name: Flower stems sprite_3
       rect:
         serializedVersion: 2
-        x: 783
-        y: 568
-        width: 96
-        height: 165
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 720
+        y: 540
+        width: 240
+        height: 540
+      alignment: 9
+      pivot: {x: 0.33297044, y: 0.06588417}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -236,12 +236,12 @@ TextureImporter:
       name: Flower stems sprite_4
       rect:
         serializedVersion: 2
-        x: 1022
-        y: 566
-        width: 71
-        height: 201
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 960
+        y: 540
+        width: 240
+        height: 540
+      alignment: 9
+      pivot: {x: 0.325708, y: 0.06749787}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -258,12 +258,12 @@ TextureImporter:
       name: Flower stems sprite_5
       rect:
         serializedVersion: 2
-        x: 1254
-        y: 567
-        width: 72
-        height: 193
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1200
+        y: 540
+        width: 240
+        height: 540
+      alignment: 9
+      pivot: {x: 0.3111842, y: 0.064270474}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -280,12 +280,12 @@ TextureImporter:
       name: Flower stems sprite_6
       rect:
         serializedVersion: 2
-        x: 1476
-        y: 569
-        width: 57
-        height: 183
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1440
+        y: 540
+        width: 240
+        height: 540
+      alignment: 9
+      pivot: {x: 0.23129985, y: 0.06427036}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -302,12 +302,12 @@ TextureImporter:
       name: Flower stems sprite_7
       rect:
         serializedVersion: 2
-        x: 1701
-        y: 570
-        width: 57
-        height: 181
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1680
+        y: 540
+        width: 240
+        height: 540
+      alignment: 9
+      pivot: {x: 0.15867767, y: 0.06588406}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -324,12 +324,12 @@ TextureImporter:
       name: Flower stems sprite_8
       rect:
         serializedVersion: 2
-        x: 108
-        y: 95
-        width: 58
-        height: 183
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 240
+        height: 540
+      alignment: 9
+      pivot: {x: 0.52178645, y: 0.18369241}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -346,12 +346,12 @@ TextureImporter:
       name: Flower stems sprite_9
       rect:
         serializedVersion: 2
-        x: 344
-        y: 95
-        width: 39
-        height: 180
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 240
+        y: 0
+        width: 240
+        height: 540
+      alignment: 9
+      pivot: {x: 0.5072622, y: 0.18853399}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -368,12 +368,12 @@ TextureImporter:
       name: Flower stems sprite_10
       rect:
         serializedVersion: 2
-        x: 593
-        y: 95
-        width: 40
-        height: 187
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 480
+        y: 0
+        width: 240
+        height: 540
+      alignment: 9
+      pivot: {x: 0.56535923, y: 0.18692014}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -390,12 +390,12 @@ TextureImporter:
       name: Flower stems sprite_11
       rect:
         serializedVersion: 2
-        x: 849
-        y: 96
-        width: 37
-        height: 182
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 720
+        y: 0
+        width: 240
+        height: 540
+      alignment: 9
+      pivot: {x: 0.630719, y: 0.18691999}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -412,12 +412,12 @@ TextureImporter:
       name: Flower stems sprite_12
       rect:
         serializedVersion: 2
-        x: 1061
-        y: 96
-        width: 29
-        height: 183
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 960
+        y: 0
+        width: 240
+        height: 540
+      alignment: 9
+      pivot: {x: 0.49273783, y: 0.19014771}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -434,12 +434,12 @@ TextureImporter:
       name: Flower stems sprite_13
       rect:
         serializedVersion: 2
-        x: 1298
-        y: 96
-        width: 32
-        height: 183
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1200
+        y: 0
+        width: 240
+        height: 540
+      alignment: 9
+      pivot: {x: 0.4745824, y: 0.19498916}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -456,12 +456,12 @@ TextureImporter:
       name: Flower stems sprite_14
       rect:
         serializedVersion: 2
-        x: 1515
-        y: 96
-        width: 35
-        height: 187
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1440
+        y: 0
+        width: 240
+        height: 540
+      alignment: 9
+      pivot: {x: 0.3946986, y: 0.19014771}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -478,12 +478,12 @@ TextureImporter:
       name: Flower stems sprite_15
       rect:
         serializedVersion: 2
-        x: 1740
-        y: 96
-        width: 33
-        height: 180
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1680
+        y: 0
+        width: 240
+        height: 540
+      alignment: 9
+      pivot: {x: 0.32207742, y: 0.19014771}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -500,7 +500,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 085ca7f6ef372d74596d36a37d317e63
     internalID: 0
     vertices: []
     indices: 
@@ -508,8 +508,26 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
-    nameFileIdTable: {}
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":8.0,"y":2.0},"gridSpriteSize":{"x":240.0,"y":540.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Flower stems sprite_0: 4970577638738430402
+      Flower stems sprite_1: -5351987133120862376
+      Flower stems sprite_10: -5837178101740637492
+      Flower stems sprite_11: -2797210718147272769
+      Flower stems sprite_12: 6013528510932471452
+      Flower stems sprite_13: -4933988942576034639
+      Flower stems sprite_14: -997591579577629514
+      Flower stems sprite_15: -524467187277417633
+      Flower stems sprite_2: -4444042637287422413
+      Flower stems sprite_3: -7221650609917769137
+      Flower stems sprite_4: -3691185691696838394
+      Flower stems sprite_5: -4422272112991629310
+      Flower stems sprite_6: -3797322193884303571
+      Flower stems sprite_7: -4097990415299809359
+      Flower stems sprite_8: 2880034854858748417
+      Flower stems sprite_9: 3588407892385483152
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

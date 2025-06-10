@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3e9fbb29a4ac8954bba65c1660ee3396
+guid: 561012490c0068d449027ce99565d246
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -134,7 +134,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+<<<<<<<< HEAD:Assets/Art/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg.meta
+      bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8_0: -6995798599712247271
+========
+      Bg color_0: 7284551115969062326
+>>>>>>>> main:Assets/Art/Sprites/Bg color.jpg.meta
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
